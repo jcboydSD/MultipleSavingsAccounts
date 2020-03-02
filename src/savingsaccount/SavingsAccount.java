@@ -3,7 +3,7 @@ package savingsaccount;
 /******************************************************************************
  * MultipleSavingsAccounts.java 
  * Programmer: @author jcboyd
- * Version: 1.0
+ * Version: 2.0
  * Course: SDEV 2210
  *
  * This program calculates the value of a savings account as it grows
@@ -17,15 +17,15 @@ public class SavingsAccount {
     {
         //Declarations
         Scanner stdIn = new Scanner(System.in);     
-        Account savings1 = new Account(); //first account
-        Account savings2 = new Account(); //second account
-        Account savings3 = new Account(); //third account
+        Account savings1 = new Account();        //first account
+        Account savings2 = new Account();        //second account
+        Account savings3 = new Account();        //third account
         int cycles;                              //number of times to compound interest
         double interestRate;                     //user input interest rate
         double balance;                          //user input starting balance
         //Input - get the needed data
         System.out.println("Ch 6 Multiple Accounts by JC Boyd");
-        for (int i = 1; i <= 3; i++)
+        for (int i = 1; i <= 3; i++) //get inputs for 3 accounts with index i
         {
             System.out.printf("\nNew Savings Account #%d\n", i);
             System.out.print("Enter the starting balance for this Savings Account: ");
@@ -35,19 +35,19 @@ public class SavingsAccount {
             interestRate = stdIn.nextDouble();
             System.out.print("Enter the number of cycles to grow this Savings Account: ");
             cycles = stdIn.nextInt();
-            if (i == 1)
+            if (i == 1) //set values for account 1
             {
                 savings1.setInterestRate(interestRate);
                 savings1.setBalance(balance);
                 savings1.growAccount(cycles);               
             }
-            else if (i == 2)
+            else if (i == 2) //set values for account 2
             {
                 savings2.setInterestRate(interestRate);
                 savings2.setBalance(balance);
                 savings2.growAccount(cycles); 
             }
-            else
+            else //set values for account 3
             {
                 savings3.setInterestRate(interestRate);
                 savings3.setBalance(balance);
