@@ -1,7 +1,7 @@
 package savingsaccount;
 
 /******************************************************************************
- * SavingsAccount.java 
+ * MultipleSavingsAccounts.java 
  * Programmer: @author jcboyd
  * Version: 1.0
  * Course: SDEV 2210
@@ -17,26 +17,52 @@ public class SavingsAccount {
     {
         //Declarations
         Scanner stdIn = new Scanner(System.in);     
-        Account savingsAccount = new Account(); //new instance of Account class
-        int cycles;                             //number of times to compound interest
-        double interestRate;                    //user input interest rate
-        double balance;                         //user input starting balance
+        Account savings1 = new Account(); //first account
+        Account savings2 = new Account(); //second account
+        Account savings3 = new Account(); //third account
+        int cycles;                              //number of times to compound interest
+        double interestRate;                     //user input interest rate
+        double balance;                          //user input starting balance
         //Input - get the needed data
-        System.out.println("Ch 6 Account by JC Boyd\n");
-        System.out.print("Enter the starting balance for this Savings Account: ");
-        balance = stdIn.nextDouble();
-        System.out.println("Interest rate: to enter 2.5%, type 2.5");
-        System.out.print("Please enter the interest rate for this account: ");
-        interestRate = stdIn.nextDouble();
-        System.out.print("Enter the number of cycles to grow this Savings Account: ");
-        cycles = stdIn.nextInt();
-        //Processing - set those values in the account object
-        savingsAccount.setInterestRate(interestRate);
-        savingsAccount.setBalance(balance);
-        //Processing - grow the account
-        savingsAccount.growAccount(cycles);
-        System.out.printf("After %d cycles, the account is worth $%-,10.2f\n",
-                cycles, savingsAccount.getBalance());
+        System.out.println("Ch 6 Multiple Accounts by JC Boyd");
+        for (int i = 1; i <= 3; i++)
+        {
+            System.out.printf("\nNew Savings Account #%d\n", i);
+            System.out.print("Enter the starting balance for this Savings Account: ");
+            balance = stdIn.nextDouble();
+            System.out.println("Interest rate: to enter 2.5%, type 2.5");
+            System.out.print("Please enter the interest rate for this account: ");
+            interestRate = stdIn.nextDouble();
+            System.out.print("Enter the number of cycles to grow this Savings Account: ");
+            cycles = stdIn.nextInt();
+            if (i == 1)
+            {
+                savings1.setInterestRate(interestRate);
+                savings1.setBalance(balance);
+                savings1.growAccount(cycles);               
+            }
+            else if (i == 2)
+            {
+                savings2.setInterestRate(interestRate);
+                savings2.setBalance(balance);
+                savings2.growAccount(cycles); 
+            }
+            else
+            {
+                savings3.setInterestRate(interestRate);
+                savings3.setBalance(balance);
+                savings3.growAccount(cycles); 
+            } //end if  
+        } //end for
+
+        //Output
+        System.out.printf("\nSavings Account 1: After growth, the account is worth $%-,10.2f\n",
+                savings1.getBalance());
+        System.out.printf("Savings Account 2: After growth, the account is worth $%-,10.2f\n",
+                savings2.getBalance());
+        System.out.printf("Savings Account 3: After growth, the account is worth $%-,10.2f\n\n",
+                savings3.getBalance());
+
     } //end main
 
 } //end class SavingsAccount
